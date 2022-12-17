@@ -50,7 +50,7 @@ nav.navi{display: block}div.hdrtxtnav{width: 100%;}
 
 div.devsH-subH{display: flex; cursor: pointer;}
 div.devsH{
-	width: 40%; font-size: 1.5em;= text-align: left;
+	width: 40%; font-size: 1.5em;text-align: left;
 	font-weight: bold;
 } div.devsH span.desbold{font-family:"Megren"; letter-spacing: 2;}
 div.subH{
@@ -79,6 +79,6 @@ img{ transition-timing-function: ease-out;}
 div.banimg img:hover div.e10e5hr{display: block; width: 50%;}
 nav .hdrtxtnav:hover{color: rgba(256,256,256,0.5); cursor: pointer;}
 div.e10e5hr{display: none;width: 0%; height: 1px;transition-timing-function: ease;}
-nav div.mems:hover;{border: 1px solid black; border-radius:20px; background-color:#1a1a1a;}
+nav div.mems:hover{border: 1px solid black; border-radius:20px; background-color:#1a1a1a;}
 div.devSH-subH:hover span.desbold{ font-size:2.3em;}
 div.devSH-subH:hover .subH{ font-size:2.3em;}
