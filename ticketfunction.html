@@ -1,0 +1,180 @@
+	<!-- 
+Online HTML, CSS and JavaScript editor to run code online.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browser</title>
+<style> 
+body{
+font-family:sans-serif;
+background-color:black;
+color:white;
+font-size:25px;
+
+}
+
+.slidecontainer,.numinp, .profit,.income,.ticketCost{width:100%; height:50px;font-size:50px; text-align:center;background-color:white; color:black;}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 75px;
+  background:gray;
+  outline: white;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 75px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+  <h1>
+    Function
+  </h1>
+ 		<div class="input"> <input type="number" id="myRange2" class="numinp"> 
+</div>
+  <div class="slidecontainer">
+  <input type="range" min="50" max="5000" value="50" class="slider" id="myRange">
+    </div>
+    <span> Registered Participants: <span id="slidervalo"> </span> </span>
+    
+    <div>
+	<p> Ticket Cost: <div id="ticketCost" class="profit"> </div> </p>
+	<p> Total Cost without Profit per Head: <div class="profit" id="income"> </div> </p>
+	<p> Total Profit per Head (20%): <div id="profit" class="profit"> </div> </p>
+	<p> Total Money Earned: <div id="totinc" class="profit"> </div>
+	</p>
+<p> Total Profit (20%): <div id="totprof" class="profit"> </div>
+	</p>
+<p> Total Expenses: <div id="totmonr" class="profit"> </div>
+	</p>
+	</div>
+    
+  <script>
+    
+  	var sliderInput = document.getElementById("myRange");
+	var numInput = document.getElementById("myRange2");
+	
+    var sliderval = document.getElementById("slidervalo");
+	var ticketdcost = document.getElementById("ticketCost");
+	var incd = document.getElementById("income");
+	var profd = document.getElementById("profit");
+var totinc = document.getElementById("totinc");
+var totprof = document.getElementById("totprof");
+var totmonraised = document.getElementById("totmonr");
+var refph = 0;
+var norefinc = 0;
+	var p;
+	console.log(p);
+	var ticketcost = 0;
+	var profit = 0;
+	var income = 0;
+	var totalinc = 0;
+	var totalprof = 0;
+    sliderval.innerHTML = sliderInput.value;
+	var expense = 36500;
+	var refreshments = 100;
+    
+    sliderInput.oninput = function(){
+	p = this.value;
+	if(p<51) {
+	sliderval.innerHTML = "Invalid"
+	profd.innerHTML = "Invalid";
+	numInput.value = p;
+	 incd.innerHTML = "Invalid";
+	ticketdcost.innerHTML = "Invalid";
+	totinc.innerHTML = "Invalid";
+	totprof.innerHTML = "Invalid";
+	totmonraised.innerHTML = "Invalid";
+	}
+	else{
+	numInput.value=p;
+    	sliderval.innerHTML = this.value;
+	income = ((36500/(p-50))+100);
+	profit = income*0.2;
+	ticketcost = income + profit;
+	totalprof = profit*(p-50);
+	totalinc = income*(p-50) + totalprof;
+	ticketdcost.innerHTML = "₱" + ticketcost;
+	profd.innerHTML = "₱" + profit;
+	incd.innerHTML = "₱" + income;
+	totinc.innerHTML = "₱" + totalinc;
+	totprof.innerHTML = "₱" + totalprof;
+	refph = 100*(p-50);
+	console.log("refph" + refph);
+	norefinc = (36500/(p-50))*(p-50);
+	console.log("norefinc" + norefinc);
+	console.log(totalinc-totalprof);
+	totmonraised.innerHTML = "₱" + (refph+norefinc);
+	}
+    } 
+	numInput.oninput = function() {
+	p = this.value;
+	sliderInput.value = p;
+    	if(p<51) {
+	
+	sliderval.innerHTML = "Invalid"
+	profd.innerHTML = "Invalid";
+	 incd.innerHTML = "Invalid";
+	ticketdcost.innerHTML = "Invalid";
+	totinc.innerHTML = "Invalid";
+	totprof.innerHTML = "Invalid";
+	totmonraised.innerHTML = "Invalid";
+	}
+	else{
+    	numInput.value=p;
+    	sliderval.innerHTML = this.value;
+	income = ((36500/(p-50))+100);
+	profit = income*0.2	;
+	ticketcost = income + profit;
+	totalprof = profit*(p-50);
+	totalinc = income*(p-50) + totalprof;
+	ticketdcost.innerHTML = "₱" + ticketcost;
+	profd.innerHTML = "₱" + profit;
+	incd.innerHTML = "₱" + income;
+	totinc.innerHTML = "₱" + totalinc;
+	totprof.innerHTML = "₱" + totalprof;
+	refph = 100*(p-50);
+	console.log("refph" + refph);
+	norefinc = (36500/(p-50))*(p-50);
+	console.log("norefinc" + norefinc);
+	console.log((income*(p-50)));
+	console.log(refph+norefinc);
+	totmonraised.innerHTML = "₱" + (refph+norefinc);
+	}
+	}
+
+	
+	
+	
+    
+   
+  </script>
+</body>
+
+</html>
